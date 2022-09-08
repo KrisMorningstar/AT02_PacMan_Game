@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7336605835793161799}
   - component: {fileID: 4219210972408007692}
   m_Layer: 0
-  m_Name: PM-Wall_2
+  m_Name: PM-Wall-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,8 +60,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 49a5730d0c4a17a409f5f2cf939104ce, type: 2}
-  - {fileID: 2100000, guid: b63d5a37d2b30114e978f5bc1a85e7cb, type: 2}
+  - {fileID: 2100000, guid: f0ab45e7150e9574f8f2af7ad8eb92f4, type: 2}
+  - {fileID: 2100000, guid: 441eff6d87db13041bf0a75eb5e76bd9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
