@@ -101,8 +101,8 @@ public class Pacman : MonoBehaviour
         }
 
         //Read inputs
-        input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
         Vector3 motion = Vector3.zero;
         //Left/right movement
         if (input.x > 0)
