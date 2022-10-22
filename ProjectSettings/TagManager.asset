@@ -8,6 +8,8 @@ TagManager:
   - Pellet
   - Bonus Item
   - Ghost
+  - Mirror Left
+  - Mirror Right
   layers:
   - Default
   - TransparentFX
