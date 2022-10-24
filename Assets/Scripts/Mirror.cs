@@ -66,6 +66,21 @@ public class Mirror : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        
+        if(other.gameObject == mirrorL)
+        {
+            if (mirrorUsedR)
+            {
+                mirrorUsedR = false;
+                mirrorUsedL = false;
+            }
+        }
+        if (other.gameObject == mirrorR)
+        {
+            if (mirrorUsedL)
+            {
+                mirrorUsedR = false;
+                mirrorUsedL = false;
+            }
+        }
     }
 }
