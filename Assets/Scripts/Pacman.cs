@@ -144,11 +144,11 @@ public class Pacman : MonoBehaviour
                 other.gameObject.SetActive(false);
                 break;
             case "Power Pellet":
-                GameManager.Instance.PickUpPellet(1, 1);
+                GameManager.Instance.PickUpPellet(50, 1);
                 other.gameObject.SetActive(false);
                 break;
             case "Bonus Item":
-                GameManager.Instance.PickUpPellet(50, 2);
+                GameManager.Instance.PickUpPellet(100, 2);
                 other.gameObject.SetActive(false);
                 break;
             case "Ghost":

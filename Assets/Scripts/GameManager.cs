@@ -17,6 +17,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip bonusItemClip;
     [SerializeField] private AudioClip eatGhostClip;
 
+    //Added Variables - Kris
+    private bool swordDrawn = false;
+    public GameObject sword;
+    public GameObject torch;
+    public GameObject[] ghostPucks;
+    public Material[] ghostMaterials;
+    public Material fleeMaterial;
+
     //Private variables
     private GameObject bonusItem;
     private int totalPellets = 0;
@@ -78,6 +86,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void Start()
     {        
+        for(int i =0; i < ghostPucks.Length; i++)
+        {
+            ghostMaterials[i] = ghostPucks[i].GetComponent<Renderer>().material;
+        }
+
         //Assign delegates/events
         Event_GameVictory += ToggleEndPanel;
         Delegate_GameOver += ToggleEndPanel;
@@ -122,10 +135,32 @@ public class GameManager : MonoBehaviour
         if(PowerUpTimer > -1)
         {
             PowerUpTimer += Time.deltaTime;
+            if (!swordDrawn)
+            {
+                swordDrawn = true;
+                torch.SetActive(false);
+                sword.SetActive(true);
+
+                for(int i = 0; i < ghostMaterials.Length; i++)
+                {
+                    ghostPucks[i].GetComponent<Renderer>().material = fleeMaterial;
+                }
+            }
             if(PowerUpTimer > powerUpTime)  //Power up timer finished
             {
                 Event_EndPowerUp.Invoke();
                 PowerUpTimer = -1;
+                if (swordDrawn)
+                {
+                    swordDrawn = false;
+                    sword.SetActive(false);
+                    torch.SetActive(true);
+
+                    for (int i = 0; i < ghostMaterials.Length; i++)
+                    {
+                        ghostPucks[i].GetComponent<Renderer>().material = ghostMaterials[i];
+                    }
+                }
             }
         }
     }
