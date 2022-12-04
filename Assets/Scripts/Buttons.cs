@@ -14,4 +14,9 @@ public class Buttons : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ChangeScene(string gameScene)
+    {
+        SceneManager.LoadSceneAsync(gameScene);
+    }
 }

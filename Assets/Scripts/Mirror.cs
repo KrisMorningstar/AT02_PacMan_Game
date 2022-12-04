@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Mirror : MonoBehaviour
 {
-    //public GameObject pacman;
     public GameObject mirrorL;
     public GameObject mirrorR;
     public Vector3 posL;
@@ -15,7 +14,6 @@ public class Mirror : MonoBehaviour
 
     private void Awake()
     {
-        //pacman = GetComponent<GameObject>();
         mirrorL = GameObject.FindGameObjectWithTag("Mirror Left");
         mirrorR = GameObject.FindGameObjectWithTag("Mirror Right");
         charController = GetComponent<CharacterController>();

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform bonusItemSpawn;
     [SerializeField] private Bounds ghostSpawnBounds;
     [SerializeField] private GameObject endPanel;
+    [SerializeField] private GameObject winPanel;
     [SerializeField] private AudioClip pelletClip;
     [SerializeField] private AudioClip powerPelletClip;
     [SerializeField] private AudioClip bonusItemClip;
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Assign delegates/events
-        Event_GameVictory += ToggleEndPanel;
+        Event_GameVictory += ToggleWinPanel;
         Delegate_GameOver += ToggleEndPanel;
         //Disable bonus item
         if (bonusItem != null)
@@ -284,6 +285,17 @@ public class GameManager : MonoBehaviour
         else
         {
             endPanel.SetActive(false);
+        }
+    }
+    private void ToggleWinPanel()
+    {
+        if(winPanel.activeSelf == false)
+        {
+            winPanel.SetActive(true);
+        }
+        else
+        {
+            winPanel.SetActive(false);
         }
     }
 

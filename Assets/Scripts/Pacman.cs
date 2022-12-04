@@ -11,6 +11,8 @@ public class Pacman : MonoBehaviour
     [SerializeField] private Transform pacmanSpawn;
     [SerializeField] private GameObject[] lifeIcons;
     [SerializeField] private AudioClip deathClip;
+    private bool isMoving = false;
+    public Animator anim;
 
     //Private variables
     private int currentLives = 0;
@@ -24,6 +26,8 @@ public class Pacman : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        anim = GetComponent<Animator>();
+
         //Find controller reference
         TryGetComponent(out CharacterController charController);
         if (charController != null)
@@ -128,6 +132,19 @@ public class Pacman : MonoBehaviour
         }
         //Apply movement to controller
         controller.Move(motion.normalized * speed * Time.deltaTime);
+
+        if ((motion != Vector3.zero) && !isMoving)
+        {
+            isMoving = true;
+            Debug.Log("MOVING");
+            anim.Play("Run");
+        }
+        if ((motion == Vector3.zero) && isMoving)
+        {
+            isMoving = false;
+            Debug.Log("STOPPED");
+            anim.Play("Idle");
+        }
     }
 
     /// <summary>
